@@ -10,6 +10,7 @@
     <None Remove="PCSC.Iso7816" />
     <None Remove="Controllers\" />
     <None Remove="Mifare\" />
+    <None Remove="model\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="PCSC" Version="5.0.0" />
@@ -18,5 +19,6 @@
   <ItemGroup>
     <Folder Include="Controllers\" />
     <Folder Include="Mifare\" />
+    <Folder Include="model\" />
   </ItemGroup>
 </Project>
