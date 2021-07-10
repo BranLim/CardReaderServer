@@ -10,14 +10,22 @@ using PCSC.Iso7816;
 
 namespace CardReaderServer.Controllers
 {
+    [ApiController]
+    [Route("/api/cardreader")]
 
     public class CardReaderController : Controller
     {
         private const byte MifareClassic1kMSB = 0x00;
         private const byte MifareClassic1kLSB = 0x08;
 
+
+        [HttpPost("provision")]
         public ActionResult ProvisionUserIdentifier(string userId)
         {
+            if (string.IsNullOrEmpty(userId))
+            {
+                return new StatusCodeResult(400);
+            }
             using (var context = ContextFactory.Instance.Establish(SCardScope.System))
             {
                 var readerNames = context.GetReaders();
