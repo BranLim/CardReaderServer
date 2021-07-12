@@ -1,5 +1,5 @@
-﻿
-namespace CardReaderServer.model
+﻿using System;
+namespace CardReaderServer.models
 {
     public class User
     {

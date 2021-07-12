@@ -3,8 +3,9 @@ using System.Diagnostics;
 using PCSC;
 using PCSC.Iso7816;
 
-namespace CardReaderServer.Mifare
+namespace CardReaderServer.acs
 {
+    
     public class MifareCard
     {
         private const byte CUSTOM_CLA = 0xFF;
@@ -99,6 +100,33 @@ namespace CardReaderServer.Mifare
             Debug.WriteLine($"SW1 SW2 = {response.SW1:X2} {response.SW2:X2}");
 
             return IsSuccess(response);
+        }
+
+        public byte[] ReadUID(byte msb, byte lsb, int size)
+        {
+            unchecked
+            {
+                var readBinaryCmd = new CommandApdu(IsoCase.Case2Short, SCardProtocol.Any)
+                {
+                    CLA = CUSTOM_CLA,
+                    Instruction = InstructionCode.GetData,
+                    P1 = msb,
+                    P2 = lsb,
+                    Le = size
+                };
+
+                Debug.WriteLine($"Read Data: {BitConverter.ToString(readBinaryCmd.ToArray())}");
+                var response = _isoReader.Transmit(readBinaryCmd);
+                if (response != null)
+                {
+                    Debug.WriteLine($"SW1 SW2 = {response.SW1:X2} {response.SW2:X2} Data: {BitConverter.ToString(response.GetData())}");
+                }
+                
+
+                return IsSuccess(response)
+                    ? response.GetData() ?? new byte[0]
+                    : null;
+            }
         }
 
         private static bool IsSuccess(Response response) =>

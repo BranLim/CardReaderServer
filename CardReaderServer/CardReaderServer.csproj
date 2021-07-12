@@ -2,23 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <RootNamespace>card_reader_server</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="PCSC" />
     <None Remove="PCSC.Iso7816" />
-    <None Remove="Controllers\" />
-    <None Remove="Mifare\" />
-    <None Remove="model\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="PCSC" Version="5.0.0" />
     <PackageReference Include="PCSC.Iso7816" Version="5.0.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Mifare\" />
-    <Folder Include="model\" />
   </ItemGroup>
 </Project>

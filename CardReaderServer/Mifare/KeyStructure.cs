@@ -1,5 +1,5 @@
-﻿
-namespace CardReaderServer.Mifare
+﻿using System;
+namespace CardReaderServer.acs
 {
     public enum KeyStructure : byte
     {

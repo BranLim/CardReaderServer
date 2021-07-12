@@ -2,3 +2,8 @@
 .DS_Store
 card-reader-server/bin
 card-reader-server/obj
+cardreaderserver/bin
+cardreaderserver/obj
+.vs/card-reader-server/xs/UserPrefs.xml
+
+.vs/card-reader-server/xs/project-cache/CardReaderServer-Debug.json

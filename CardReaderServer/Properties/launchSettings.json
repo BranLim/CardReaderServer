@@ -4,19 +4,20 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:57557",
-      "sslPort": 44368
+      "applicationUrl": "http://localhost:11349",
+      "sslPort": 44325
     }
   },
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
+      "launchUrl": "weatherforecast",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "card_reader_server": {
+    "CardReaderServer": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,
