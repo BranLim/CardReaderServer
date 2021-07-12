@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using CardReaderServer.acs;
-using CardReaderServer.exceptions;
+using CardReaderServer.Mifare;
 using CardReaderServer.models;
 using Microsoft.AspNetCore.Mvc;
 using PCSC;

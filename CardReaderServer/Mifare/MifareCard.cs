@@ -3,7 +3,7 @@ using System.Diagnostics;
 using PCSC;
 using PCSC.Iso7816;
 
-namespace CardReaderServer.acs
+namespace CardReaderServer.Mifare
 {
     
     public class MifareCard

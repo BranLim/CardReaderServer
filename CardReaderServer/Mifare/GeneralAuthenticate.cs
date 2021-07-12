@@ -1,5 +1,5 @@
 ﻿using System;
-namespace CardReaderServer.acs
+namespace CardReaderServer.Mifare
 {
     public class GeneralAuthenticate
     {

@@ -5,5 +5,6 @@ card-reader-server/obj
 cardreaderserver/bin
 cardreaderserver/obj
 .vs/card-reader-server/xs/UserPrefs.xml
+.vs
 
 .vs/card-reader-server/xs/project-cache/CardReaderServer-Debug.json
