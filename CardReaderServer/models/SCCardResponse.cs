@@ -1,9 +1,9 @@
 ﻿using System;
 namespace CardReaderServer.models
 {
-    public class SCCard
+    public class SCCardResponse: CardReaderResponse
     {
-        public SCCard(string uid, byte[] cardAttr)
+        public SCCardResponse(string uid, byte[] cardAttr, string readerName)
         {
             ID = uid;
 
@@ -14,6 +14,8 @@ namespace CardReaderServer.models
             byte[] name = new byte[2];
             Array.Copy(cardAttr, 14, name, 0, 2);
             CardType = CardNameToUserReadableName(name);
+
+            ReaderName = readerName;
         }
 
 
@@ -22,6 +24,8 @@ namespace CardReaderServer.models
         public string RID { get; private set; }
 
         public string CardType { get; private set; }
+
+        public string ReaderName { get; private set; }
 
 
         private string CardNameToUserReadableName(byte[] cardName)
