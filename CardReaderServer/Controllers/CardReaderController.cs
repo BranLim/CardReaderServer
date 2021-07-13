@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using CardReaderServer.Mifare;
@@ -19,9 +19,16 @@ namespace CardReaderServer.Controllers
     [Route("/api/cardreader")]
     public class CardReaderController : Controller
     {
-
+        /*
+         * Sector 0, Block 0
+         */
         private const byte Manufacturer_MSB = 0x00;
         private const byte Manufacturer_LSB = 0x00;
+
+
+        /*
+         * Sector 2, Block 0
+         */
         private const byte MifareClassic1kMSB = 0x00;
         private const byte MifareClassic1kLSB = 0x08;
 

@@ -1,11 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using PCSC;
 using PCSC.Iso7816;
 
 namespace CardReaderServer.Mifare
 {
-    
+
+    /**
+     * Mifare cards 1K: 
+     * - 64 memory blocks (16 sectors, 4 blocks each, access is 0-based index [Range: 0-63)
+     * - 16 sector trailers => Memory block at the end of each sector that contain authentication Key A, Key B and Access Bits) => Avoid writing to this area if you don't want to destroy the sector.
+     * - Sector 0, Block 0 => readonly. Contains manufacturer data.
+     */
+
     public class MifareCard
     {
         private const byte CUSTOM_CLA = 0xFF;
@@ -121,7 +129,6 @@ namespace CardReaderServer.Mifare
                 {
                     Debug.WriteLine($"SW1 SW2 = {response.SW1:X2} {response.SW2:X2} Data: {BitConverter.ToString(response.GetData())}");
                 }
-                
 
                 return IsSuccess(response)
                     ? response.GetData() ?? new byte[0]
